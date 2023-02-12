@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Spring boot project of employee details
  *
  * @author praveen
- * @version 1.0
+ * @version 1.1
  */
 @NoArgsConstructor
 @SpringBootApplication
