@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "2243c3bf-6123-481c-96f1-f5954d045ec3",
+		"name": "BusReservationSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19461915"
+	},
+	"item": [
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "AdminBookingDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/book/admin/2"
+					},
+					"response": []
+				},
+				{
+					"name": "AddNewBooking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Praveene\",\r\n    \"seatsBooked\": 13\r\n}"
+						},
+						"url": "http://localhost:9090/book/16"
+					},
+					"response": []
+				},
+				{
+					"name": "CancelBooking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:9090/book/5"
+					},
+					"response": []
+				},
+				{
+					"name": "BookingDetails",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:9090/book/5"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bus",
+			"item": [
+				{
+					"name": "AddNewBus",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let current = new Date();\r",
+									"let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();\r",
+									"pm.globals.set(\"current_date\", cDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"busName\":\"kkjjja\",\r\n    \"date\":\"2022-09-28\",\r\n    \"busType\":\"AC\",\r\n    \"startLocation\":\"YALAHANKA\",\r\n    \"endLocation\":\"JAYANAGAR\",\r\n    \"noOfSeats\":2\r\n}"
+						},
+						"url": "http://localhost:9090/bus"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBus",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"date\": \"2022-09-28T06:48:50.082+00:00\",\r\n    \"busType\": \"NonAC\",\r\n    \"startLocation\": \"Belgaum\",\r\n    \"endLocation\": \"Bangalore\",\r\n    \"noOfSeats\": 20\r\n}"
+						},
+						"url": "http://localhost:9090/bus/6"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllBuses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:9090/bus"
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleBus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:9090/bus/busId/4"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBus",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:9090/bus/13"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
